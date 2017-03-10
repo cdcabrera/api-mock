@@ -11,7 +11,7 @@
 
   },
   "dependencies": {
-    "protagonist": "^1.6.5",
+    "drafter": "^1.2.0",
     "express": "^4.15.2",
     "uri-template": "^1.0.1",
     "winston": "^2.3.1"
