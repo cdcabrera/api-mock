@@ -4,9 +4,6 @@
   "description": "A mock server generated from your API Blueprint.",
   "author": "Evan Cordell <cordell.evan@gmail.com>",
   "main": "index.js",
-  "bin": {
-    "api-mock": "bin/api-mock"
-  },
   "scripts": {
 
   },
