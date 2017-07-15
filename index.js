@@ -48,7 +48,7 @@
         }
 
 
-        drafter.parse(data, {type: "ast"}, function(error, result) {
+        drafter.parse(data, {type: 'ast'}, function(error, result) {
 
             if (error !== null) {
 
