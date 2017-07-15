@@ -1,10 +1,10 @@
 
-    var fs          = require('fs'),
-        drafter     = require('drafter'),
-        express     = require('express'),
-        walker      = require('./lib/walker'),
-        sslSupport  = require('./lib/ssl-support'),
-        corsSupport = require('./lib/cors-support');
+    const fs          = require('fs');
+    const drafter     = require('drafter');
+    const express     = require('express');
+    const walker      = require('./lib/walker');
+    const sslSupport  = require('./lib/ssl-support');
+    const corsSupport = require('./lib/cors-support');
 
 
     module.exports = apiMock;
@@ -35,7 +35,7 @@
         }, settings);
 
 
-        var data = '';
+        let data = '';
 
 
         try {
@@ -56,7 +56,7 @@
             }
 
 
-            var app = express();
+            let app = express();
 
 
             if (settings.options['ssl-enable']) {
