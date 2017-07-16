@@ -10,29 +10,21 @@
     module.exports = apiMock;
 
 
-    //apiMock({
-    //    blueprintPath: './samples/test.apib'
-    //});
-
     /**
      *
      * @param settings
      */
-    function apiMock(settings) {
+    function apiMock(settings={blueprintPath:null, options:null}) {
 
-        settings = Object.assign({
-
-            blueprintPath: null,
-            options: {
-                port: 3000,
-                'ssl-enable': null,
-                'ssl-port': null,
-                'ssl-cert': null,
-                'ssl-key': null,
-                'cors-disable': null
-            }
-
-        }, settings);
+        settings.options = Object.assign({
+            port: 3000,
+            'ssl-enable': null,
+            'ssl-port': null,
+            'ssl-cert': null,
+            'ssl-key': null,
+            'cors-disable': null,
+            logging: true
+        }, settings.options);
 
 
         let data = '';
@@ -66,24 +58,24 @@
                     port: settings.options['ssl-port'],
                     host: settings.options['ssl-host'],
                     cert: settings.options['ssl-cert'],
-                    key: settings.options['ssl-key']
-                 });
+                    key : settings.options['ssl-key']
+                 }, settings.options.logging);
             }
 
 
             if (!settings.options['cors-disable']) {
 
-                corsSupport(app);
+                corsSupport(app, settings.options.logging);
             }
 
 
             try {
 
-                walker(app, result.ast['resourceGroups']);
+                walker(app, result.ast['resourceGroups'], settings.options.logging);
 
             } catch (e) {
 
-                throw error;
+                throw e;
             }
 
 
@@ -91,6 +83,9 @@
 
                 return app.listen(settings.options.port);
 
-            } catch (e) {}
+            } catch (e) {
+
+                throw e;
+            }
         });
     }
