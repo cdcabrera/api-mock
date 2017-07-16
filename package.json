@@ -5,15 +5,16 @@
   "author": "Evan Cordell <cordell.evan@gmail.com>",
   "main": "index.js",
   "scripts": {
-
+    "test": "mocha"
   },
   "dependencies": {
     "drafter": "^1.2.0",
-    "express": "^4.15.2",
+    "express": "^4.15.3",
     "uri-template": "^1.0.1",
     "winston": "^2.3.1"
   },
   "devDependencies": {
+    "mocha": "^3.4.2"
   },
   "repository": {
     "type": "git",
